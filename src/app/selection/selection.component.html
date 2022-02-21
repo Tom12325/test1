@@ -1,0 +1,108 @@
+<div id="central" class="container-fluid rounded">
+    <form #form action="#">
+        Category:
+        <select class="form-control" #dataset>
+            <option value='{{choice}}' *ngFor="let choice of choices">{{ choice }}</option>
+        </select>
+        Date:
+        <select class="form-control" #dateSelect>
+            <option value="2019-01">2019-01</option>
+            <option value="2019-02">2019-02</option>
+            <option value="2019-03">2019-03</option>
+            <option value="2019-04">2019-04</option>
+            <option value="2019-05">2019-05</option>
+            <option value="2019-06">2019-06</option>
+            <option value="2019-07">2019-07</option>
+            <option value="2019-08">2019-08</option>
+            <option value="2019-09">2019-09</option>
+            <option value="2019-10">2019-10</option>
+            <option value="2019-11">2019-11</option>
+            <option value="2019-12">2019-12</option>
+            <option value="2020-01">2020-01</option>
+            <option value="2020-02">2020-02</option>
+            <option value="2020-03">2020-03</option>
+            <option value="2020-04">2020-04</option>
+            <option value="2020-05">2020-05</option>
+            <option value="2020-06">2020-06</option>
+            <option value="2020-07">2020-07</option>
+            <option value="2020-08">2020-08</option>
+            <option value="2020-09">2020-09</option>
+            <option value="2020-10">2020-10</option>
+            <option value="2020-11">2020-11</option>
+            <option value="2020-12">2020-12</option>
+            <option value="2021-01">2021-01</option>
+            <option value="2021-02">2021-02</option>
+            <option value="2021-03">2021-03</option>
+            <option value="2021-04">2021-04</option>
+            <option value="2021-05">2021-05</option>
+            <option value="2021-06">2021-06</option>
+            <option value="2021-07">2021-07</option>
+            <option value="2021-08">2021-08</option>
+            <option value="2021-09">2021-09</option>
+            <option value="2021-10">2021-10</option>
+            <option value="2021-11">2021-11</option>
+            <option value="2021-12">2021-12</option>
+        </select>
+        Gender:
+        <select class="form-control" #Gender>
+            <option value="">Both</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+        <div class="row container-fluid">
+            <div class="col-md-7" id="crit">
+                Outcome of search:
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #arrest type="checkbox" value="Arrest"
+                            (click)="selectedOutcome(arrest.value, arrest.checked)">Arrest</label>
+                </div>
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #none type="checkbox" value="A no further action disposal"
+                            (click)="selectedOutcome(none.value, none.checked)">No further action</label>
+                </div>
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #com type="checkbox" value="Community resolution"
+                            (click)="selectedOutcome(com.value, com.checked)">Community resolution</label>
+                </div>
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #khat type="checkbox" value="Khat or Cannabis warning"
+                            (click)="selectedOutcome(khat.value, khat.checked)">Cannabis warning</label>
+                </div>
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #caution type="checkbox"
+                            value="Caution (simple or conditional)"
+                            (click)="selectedOutcome(caution.value, caution.checked)">Caution</label>
+                </div>
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #summons type="checkbox" value="Summons / charged by post"
+                            (click)="selectedOutcome(summons.value, summons.checked)">Summons/charged by post</label>
+                </div>
+            </div>
+
+            <div class="col-md-5" id="crit">
+                Age range:
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #_10_17 type="checkbox" value="10-17"
+                            (click)="selectedAge(_10_17.value, _10_17.checked)">10-17</label>
+                </div>
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #_18_24 type="checkbox" value="18-24"
+                            (click)="selectedAge(_18_24.value, _18_24.checked)">18-24</label>
+                </div>
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #_25_34 type="checkbox" value="25-34"
+                            (click)="selectedAge(_25_34.value, _25_34.checked)">25-34</label>
+                </div>
+                <div class="checkbox">
+                    <label><input [disabled]="this.status" #_34 type="checkbox" value="over 34"
+                            (click)="selectedAge(_34.value, _34.checked)">Over 34</label>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <button type="submit" class="btn btn-success"
+                (click)="send(dataset.value, dateSelect.value, Gender.value, this.out, this.age)">Send</button>
+            <button type="button" class="btn btn-danger" (click)="reset();  form.reset()">Reset</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+#placeholder{
+    background-color: #124559;
+    border-radius: 1em;
+    min-height: 427px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+p {
+    transform: rotate(-25deg);
+    font-size: 30pt;
+    opacity: 70%;
+    color: white;
+    ;
+}

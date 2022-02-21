@@ -1,0 +1,15 @@
+#crit {
+    border: solid 1px gray;
+    border-radius: 5%;
+    margin-top: 1em;
+}
+
+.btn {
+    margin: 5px;
+}
+
+#central {
+    background-color: #124559;
+    border-radius: 1em;
+    color: aliceblue;
+}

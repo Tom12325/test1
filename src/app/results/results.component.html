@@ -1,0 +1,64 @@
+<div id="central">
+    <div #central class="container-fluid" *ngFor="let datapoint of data[0]; let last = last">
+        <div *ngIf="((datapoint.gender == criteria       || criteria == '') &&
+                    (outcome.includes(datapoint.outcome)|| outcome.length == 0) &&
+                    (age.includes(datapoint.age_range)  || age.length == 0)); else elseCircle">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Heading</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let items of datapoint | keyvalue">
+                        <td *ngIf="items.key != exceptions[1]">
+                            <b> {{items.key}}: </b>
+                        </td>
+                        <td *ngIf="!((items.key == exceptions[0]) || (items.key == exceptions[1])); else elseBlock">
+                            {{items.value}}
+                        </td>
+                        <ng-template #elseBlock>
+                            <section *ngIf="items.key != exceptions[1]">
+                                <table>
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let parts of items.value | keyvalue">
+                                            <td>
+                                                <b> {{parts.key}}: </b>
+                                            </td>
+                                            <td *ngIf="parts.key != 'street'; else elseTop">
+                                                {{parts.value}}
+                                            </td>
+                                            <ng-template #elseTop>
+                                                <table>
+                                                    <thead>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let comps of parts.value | keyvalue">
+                                                            <td>
+                                                                <b> {{comps.key}}: </b>
+                                                            </td>
+                                                            <td>
+                                                                {{comps.value}}
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </ng-template>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </ng-template>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+        <ng-template #elseCircle>
+                <p *ngIf="last" id="noResults">No matching records found</p>
+        </ng-template>
+    </div>
+</div>

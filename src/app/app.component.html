@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
+      <h1>Report Generation</h1>
+      <app-selection (dataset)="onFetchPosts($event)" [choices]="this.choiceArrayId" (flag)="this.flag=$event"></app-selection>
+    </div>
+    <div class="col-xs-7">
+    <h1>Report</h1>
+      <app-results 
+      *ngIf="this.flag; else elseBlock" 
+      [data]="this.result" 
+      [criteria]="this.criteria" 
+      [outcome]="this.outcom" 
+      [age]="this.age"></app-results>
+      <ng-template #elseBlock>
+      <div id="placeholder" class="container-fluid">
+      <p class="my-auto">
+      No report yet generated
+      </p>
+      </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

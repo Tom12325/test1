@@ -1,0 +1,29 @@
+hr {
+    border: 1px solid black;
+}
+
+#central {
+    background-color: #124559;
+    border-radius: 1em;
+    min-height: 80%;
+}
+
+#central:empty:before {
+  content:attr(data-placeholder);
+  background-color: #124559;
+}
+
+#noResults {
+    min-height: 417px;
+    background-color: #124559;
+}
+
+#placeholder {
+    background-color: #124559;
+}
+
+table {
+    background-color: #aec3b0;
+    color: #124559;
+    margin-top: 1em;
+}
